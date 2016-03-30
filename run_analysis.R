@@ -75,11 +75,10 @@ run <- function(proto = T) {
     # map activity id to activity description
     merge(activities) %>%
     select(-ActivityId) %>%
-    gather("Feature", "Value", -SubjectId, -ActivityName, factor_key = TRUE) 
-  #%>%
+    gather("Feature", "Value", -SubjectId, -ActivityName, factor_key = TRUE) %>%
     # 5. From the data set in step 4, creates a second, independent tidy data set with the average of 
     # each variable for each activity and each subject.
-    #create_summary() %>%
+    create_summary() %>%
     # save file to local disk
-    #save_file()
+    save_file()
 }
