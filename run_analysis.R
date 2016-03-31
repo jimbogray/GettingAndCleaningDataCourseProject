@@ -49,6 +49,7 @@ create_summary <- function(data) {
 
 save_file <- function(data) {
   write.table(data, "tidy_summary_output.csv", row.names = F, sep=",")
+  data
 }
 
 # run data processing
@@ -76,7 +77,7 @@ run <- function(proto = T) {
     merge(activities) %>%
     select(-ActivityId) %>%
     gather("Feature", "Value", -SubjectId, -ActivityName, factor_key = TRUE) %>%
-    # 5. From the data set in step 4, creates a second, independent tidy data set with the average of 
+    # 5. From the data set in step 4, creates a second, independent tidy data set with the average of
     # each variable for each activity and each subject.
     create_summary() %>%
     # save file to local disk
